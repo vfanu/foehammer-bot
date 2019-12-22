@@ -59,7 +59,7 @@ def start_vpn(region, email):
     if email is not "":
         arg_list = region + " " + email
 
-    child = Popen('/dragon_vpn/create.sh %s' % (arg_list), shell=True)
+    child = Popen('/dragon_vpn/create_vpn.sh %s' % (arg_list), shell=True)
     child.communicate()[0]
     rc = child.returncode
 
@@ -69,7 +69,7 @@ def start_vpn(region, email):
 def stop_vpn(region):
     print('Saying goodbye to the VPN')
     arg_list = region
-    child = Popen('/dragon_vpn/destroy.sh' % (arg_list), shell=True)
+    child = Popen('/dragon_vpn/destroy_vpn.sh' % (arg_list), shell=True)
     child.communicate()[0]
     rc = child.returncode
 
